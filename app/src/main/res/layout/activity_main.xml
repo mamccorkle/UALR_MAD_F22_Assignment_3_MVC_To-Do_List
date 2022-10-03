@@ -15,7 +15,7 @@
     tools:context=".MainActivity" >
 
     <TextView
-        android:id="@+id/taskList"
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:text="@string/task_list_empty"
@@ -24,28 +24,31 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTaskDescription" />
 
     <EditText
         android:backgroundTint="@color/colorAccent"
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editTextTaskDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/task_placeholder"
         app:layout_constraintEnd_toStartOf="@+id/add_btn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:inputType="text|textAutoCorrect"
+        android:importantForAutofill="no" />
 
     <ImageView
         android:id="@+id/add_btn"
-        android:tint="@color/colorPrimary"
-        android:src="@drawable/ic_baseline_add_circle_24"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
+        android:src="@drawable/ic_baseline_add_circle_24"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextTaskDescription"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toTopOf="@+id/editTextTaskDescription"
+        app:tint="@color/colorPrimary"
+        android:contentDescription="@string/insert_task" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -56,7 +59,7 @@
         android:layout_gravity="bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/taskList"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
         tools:layout_editor_absoluteX="16dp">
 
         <EditText
@@ -67,11 +70,12 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"
             android:hint="@string/insert_task_id"
             app:layout_constraintEnd_toStartOf="@+id/deleteBtn"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:importantForAutofill="no" />
 
         <com.google.android.material.button.MaterialButton
             app:cornerRadius="24dp"
@@ -79,11 +83,11 @@
             android:textColor="@android:color/white"
             style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
             android:id="@+id/deleteBtn"
-            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@+id/editTextTaskId"
-            app:layout_constraintEnd_toStartOf="@+id/clearBtn" />
+            app:layout_constraintEnd_toStartOf="@+id/doneBtn" />
 
         <com.google.android.material.button.MaterialButton
             app:cornerRadius="24dp"
@@ -91,7 +95,7 @@
             android:text="@string/done_task"
             android:textColor="@android:color/white"
             style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-            android:id="@+id/clearBtn"
+            android:id="@+id/doneBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@+id/editTextTaskId"

@@ -5,4 +5,11 @@
     <string name="delete_task">Delete</string>
     <string name="done_task">Done</string>
     <string name="insert_task_id">Type id of task to be deleted</string>
+    <string name="alert_dialog_title">Empty Input</string>
+    <string name="alert_dialog_msg">Please enter the required text..</string>
+    <string name="alert_dialog_msg_delete_task">Please enter the required task ID..</string>
+    <string name="alert_dialog_title_entry_not_found">Not Found</string>
+    <string name="alert_dialog_msg_entry_not_found">The task cannot be found..</string>
+    <string name="ok">OK</string>
+    <string name="insert_task">Add Task</string>
 </resources>
