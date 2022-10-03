@@ -1,5 +1,7 @@
 package com.ualr.simpletasklist.model;
 
+import androidx.annotation.NonNull;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -26,6 +28,7 @@ public class TaskList {
     // TODO 06.04. Define a new "toString" method that provides a formatted string with all the tasks in the task list.
     // Format: 1 line per task. Each line should start with the id number of the task, then a dash, and the task description right after that.
     // If the task is marked as done, "Done" should be included at the end of the line
+    @NonNull
     public String toString() {
         // Create a new instance of the a string builder object to append the string data together:
         StringBuilder returnString = new StringBuilder();

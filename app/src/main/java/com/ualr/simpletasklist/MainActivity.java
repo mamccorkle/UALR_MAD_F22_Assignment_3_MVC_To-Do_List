@@ -23,7 +23,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.View;
 
 import com.ualr.simpletasklist.databinding.ActivityMainBinding;
 import com.ualr.simpletasklist.model.TaskList;
@@ -47,30 +46,27 @@ public class MainActivity extends AppCompatActivity {
 
         //TODO 06.02 Bind the onAddBtnClicked method to the add button, so the onAddBtnClicked is
         // triggered whenever the user clicks on that button
-        binding.addBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onAddBtnClicked();
-            }
-        });
+        binding.addBtn.setOnClickListener(v -> onAddBtnClicked());
 
         //TODO 07.02 Bind the onDeleteBtnClicked method to the delete button, so that method is
         // triggered whenever the user clicks on that button
-        binding.deleteBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onDeleteBtnClicked();
-            }
-        });
+        binding.deleteBtn.setOnClickListener(v -> onDeleteBtnClicked());
 
         //TODO 08.02 Bind the onDoneBtnClicked method to the done button, so the onDoneBtnClicked method is
         // triggered whenever the user clicks on that button
-        binding.doneBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onDoneBtnClicked();
-            }
-        });
+        binding.doneBtn.setOnClickListener(v -> onDoneBtnClicked());
+
+        // Remove - For testing purposes only:
+        taskList.addTask("TODO 1 Define two attributes for the Task class: one to store the task description and a second one that indicates whether the task is done or not");
+        taskList.addTask("TODO 2 Define the class constructor and the corresponding getters and setters.");
+        taskList.addTask("TODO 3 Define TaskList's attributes. The class will have just one attribute to store all the tasks created by the user.");
+        taskList.addTask("TODO 4 Define the class constructor and the corresponding getters and setters.");
+        taskList.addTask("TODO 5 Add a TaskList member to the MainActivity. Initialize the new member.");
+        taskList.addTask("TODO 6 Create a new functionality to add a new task using the description provided through the text field on the top of the screen by tapping the + on the right");
+        taskList.addTask("TODO 7 Create a new functionality to delete a task from the task list");
+        taskList.addTask("TODO 8 Create a new functionality to mark a task as done.");
+
+        displayTasks();
     }
 
     // TODO 06. Create a new functionality to add a new task using the description provided
@@ -91,11 +87,7 @@ public class MainActivity extends AppCompatActivity {
                     .setMessage(getResources().getText(R.string.alert_dialog_msg))
 
                     // Set the Button Text on the Alert Dialog Box:
-                    .setPositiveButton(getResources().getText(R.string.ok), new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            binding.editTextTaskDescription.requestFocus();
-                        }
-                    });
+                    .setPositiveButton(getResources().getText(R.string.ok), (dialog, id) -> binding.editTextTaskDescription.requestFocus());
             AlertDialog alert = builder.create();
             alert.show();
 
@@ -137,11 +129,7 @@ public class MainActivity extends AppCompatActivity {
                     .setMessage(getResources().getText(R.string.alert_dialog_msg_delete_task))
 
                     // Set the Button Text on the Alert Dialog Box:
-                    .setPositiveButton(getResources().getText(R.string.ok), new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            binding.editTextTaskDescription.requestFocus();
-                        }
-                    });
+                    .setPositiveButton(getResources().getText(R.string.ok), (dialog, id) -> binding.editTextTaskDescription.requestFocus());
             AlertDialog alert = builder.create();
             alert.show();
         }
@@ -149,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
         else {
             // TODO 07.04. Invoke TaskList class' delete method to ask the TaskList to
             //  delete a Task given the id provided through the text field on the bottom.
-            if(taskList.delete(Integer.valueOf(binding.editTextTaskId.getText().toString()))) {
+            if(!taskList.delete(Integer.valueOf(binding.editTextTaskId.getText().toString()))) {
                 // Make user acknowledge that the task has not been found via an alert dialog box:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder
@@ -160,17 +148,13 @@ public class MainActivity extends AppCompatActivity {
                         .setMessage(getResources().getText(R.string.alert_dialog_msg_entry_not_found))
 
                         // Set the Button Text on the Alert Dialog Box:
-                        .setPositiveButton(getResources().getText(R.string.ok), new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                binding.editTextTaskDescription.requestFocus();
-                            }
-                        });
+                        .setPositiveButton(getResources().getText(R.string.ok), (dialog, id) -> binding.editTextTaskDescription.requestFocus());
                 AlertDialog alert = builder.create();
                 alert.show();
-
-                // Clean up:
-                binding.editTextTaskId.getText().clear();
             }
+
+            // Clean up:
+            binding.editTextTaskId.getText().clear();
         }
 
         // TODO 07.05. Use TaskList class' toString method to get a string with the formatted task list
@@ -194,11 +178,7 @@ public class MainActivity extends AppCompatActivity {
                     .setMessage(getResources().getText(R.string.alert_dialog_msg_delete_task))
 
                     // Set the Button Text on the Alert Dialog Box:
-                    .setPositiveButton(getResources().getText(R.string.ok), new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            binding.editTextTaskDescription.requestFocus();
-                        }
-                    });
+                    .setPositiveButton(getResources().getText(R.string.ok), (dialog, id) -> binding.editTextTaskDescription.requestFocus());
             AlertDialog alert = builder.create();
             alert.show();
         }
@@ -217,11 +197,7 @@ public class MainActivity extends AppCompatActivity {
                         .setMessage(getResources().getText(R.string.alert_dialog_msg_entry_not_found))
 
                         // Set the Button Text on the Alert Dialog Box:
-                        .setPositiveButton(getResources().getText(R.string.ok), new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                binding.editTextTaskDescription.requestFocus();
-                            }
-                        });
+                        .setPositiveButton(getResources().getText(R.string.ok), (dialog, id) -> binding.editTextTaskDescription.requestFocus());
                 AlertDialog alert = builder.create();
                 alert.show();
             }
