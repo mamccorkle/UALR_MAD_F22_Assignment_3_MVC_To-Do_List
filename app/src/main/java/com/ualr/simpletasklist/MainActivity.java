@@ -21,7 +21,6 @@ package com.ualr.simpletasklist;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 
 import com.ualr.simpletasklist.databinding.ActivityMainBinding;
@@ -57,16 +56,18 @@ public class MainActivity extends AppCompatActivity {
         binding.doneBtn.setOnClickListener(v -> onDoneBtnClicked());
 
         // Remove - For testing purposes only:
-        taskList.addTask("TODO 1 Define two attributes for the Task class: one to store the task description and a second one that indicates whether the task is done or not");
-        taskList.addTask("TODO 2 Define the class constructor and the corresponding getters and setters.");
-        taskList.addTask("TODO 3 Define TaskList's attributes. The class will have just one attribute to store all the tasks created by the user.");
-        taskList.addTask("TODO 4 Define the class constructor and the corresponding getters and setters.");
-        taskList.addTask("TODO 5 Add a TaskList member to the MainActivity. Initialize the new member.");
-        taskList.addTask("TODO 6 Create a new functionality to add a new task using the description provided through the text field on the top of the screen by tapping the + on the right");
-        taskList.addTask("TODO 7 Create a new functionality to delete a task from the task list");
-        taskList.addTask("TODO 8 Create a new functionality to mark a task as done.");
+        {
+            //taskList.addTask("TODO 1 Define two attributes for the Task class: one to store the task description and a second one that indicates whether the task is done or not");
+            //taskList.addTask("TODO 2 Define the class constructor and the corresponding getters and setters.");
+            //taskList.addTask("TODO 3 Define TaskList's attributes. The class will have just one attribute to store all the tasks created by the user.");
+            //taskList.addTask("TODO 4 Define the class constructor and the corresponding getters and setters.");
+            //taskList.addTask("TODO 5 Add a TaskList member to the MainActivity. Initialize the new member.");
+            //taskList.addTask("TODO 6 Create a new functionality to add a new task using the description provided through the text field on the top of the screen by tapping the + on the right");
+            //taskList.addTask("TODO 7 Create a new functionality to delete a task from the task list");
+            //taskList.addTask("TODO 8 Create a new functionality to mark a task as done.");
 
-        displayTasks();
+            //displayTasks();
+        }
     }
 
     // TODO 06. Create a new functionality to add a new task using the description provided
