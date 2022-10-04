@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         // triggered whenever the user clicks on that button
         binding.doneBtn.setOnClickListener(v -> onDoneBtnClicked());
 
-        // Remove - For testing purposes only:
+        // Remove - For testing purposes only :
         {
             //taskList.addTask("TODO 1 Define two attributes for the Task class: one to store the task description and a second one that indicates whether the task is done or not");
             //taskList.addTask("TODO 2 Define the class constructor and the corresponding getters and setters.");
